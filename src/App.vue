@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 
 const fonts = [
     // system stacks
@@ -44,6 +44,11 @@ const pick = (arr) => arr[Math.floor(Math.random() * arr.length)];
 const font = ref({});
 const clicks = ref(0);
 
+// '"Press Start 2P", monospace' -> 'Press Start 2P'
+const fontName = computed(() =>
+    (font.value.fontFamily ?? '').split(',')[0].replace(/["']/g, '').trim()
+);
+
 function randomize() {
     clicks.value++;
     font.value = {
@@ -63,6 +68,8 @@ function randomize() {
         class="flex min-h-screen cursor-pointer select-none flex-col items-center justify-center gap-6 bg-white"
         @click="randomize"
     >
+        <p class="h-5 text-sm text-slate-400">{{ fontName }}</p>
+
         <h1 class="text-6xl transition-all duration-150" :style="font">
             helloWorld
         </h1>
