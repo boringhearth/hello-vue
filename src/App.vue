@@ -2,11 +2,37 @@
 import { ref } from 'vue';
 
 const fonts = [
+    // system stacks
     'ui-sans-serif, system-ui, sans-serif',
     'ui-serif, Georgia, serif',
     'ui-monospace, "Courier New", monospace',
-    'cursive',
-    'fantasy',
+
+    // display / decorative
+    '"Bungee", cursive',
+    '"Monoton", cursive',
+    '"Nabla", cursive',
+    '"Rubik Glitch", cursive',
+    '"Ultra", serif',
+
+    // blackletter & engraved
+    '"UnifrakturMaguntia", cursive',
+    '"Jacquard 12", cursive',
+    '"Cinzel", serif',
+
+    // handwriting
+    '"Caveat", cursive',
+    '"Great Vibes", cursive',
+    '"Comic Neue", cursive',
+
+    // pixel / typewriter
+    '"Press Start 2P", monospace',
+    '"Silkscreen", monospace',
+    '"Special Elite", monospace',
+    '"Space Mono", monospace',
+
+    // editorial
+    '"Playfair Display", serif',
+    '"Oswald", sans-serif',
 ];
 
 const weights = [200, 300, 400, 600, 700, 900];
