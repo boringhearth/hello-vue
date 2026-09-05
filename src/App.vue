@@ -45,6 +45,11 @@ const font = ref({});
 const clicks = ref(0);
 
 // '"Press Start 2P", monospace' -> 'Press Start 2P'
+const label = computed(() => {
+    if (clicks.value === 0) return 'click anywhere';
+    return `${clicks.value} ${clicks.value === 1 ? 'click' : 'clicks'}`;
+});
+
 const fontName = computed(() =>
     (font.value.fontFamily ?? '').split(',')[0].replace(/["']/g, '').trim()
 );
@@ -74,8 +79,6 @@ function randomize() {
             helloWorld
         </h1>
 
-        <p class="text-sm text-slate-400">
-            {{ clicks === 0 ? 'click anywhere' : `${clicks} clicks` }}
-        </p>
+        <p class="text-sm text-slate-400">{{ label }}</p>
     </div>
 </template>
